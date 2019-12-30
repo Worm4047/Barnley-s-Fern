@@ -1,15 +1,15 @@
-void setup(){
+function setup(){
 
-  size(600, 600);
+  createCanvas(600, 600);
   background(0);
 }
 
-float x = 0, y = 0;
+x = 0, y = 0;
 
-void nextPoint(){
-float nextx = 0;
-  float nexty = 0;
-  float r = random(1);
+function nextPoint(){
+ nextx = 0;
+   nexty = 0;
+  r = random(1);
   if(r <= 0.01){
      nextx =  0;
      nexty = 0.16*y;  
@@ -33,24 +33,24 @@ float nextx = 0;
   y = nexty;
 }
 
-void drawPoint(){
+function drawPoint(){
   
-  float c1 = random(255);
-   float c2 = random(255);
-    float c3 = random(255);
+  c1 = random(255);
+   c2 = random(255);
+    c3 = random(255);
   stroke(c1,c2,c3);
   strokeWeight(1);
   
   // for mapping x & y points onto screen size
-  float px = map(x, -2.1820,2.6558, 0, width);
-  float py = map(y, 0, 9.9983, height, 0);
+  px = map(x, -2.1820,2.6558, 0, width);
+  py = map(y, 0, 9.9983, height, 0);
   point(px,py);
 }
 
-void draw(){
+function draw(){
   
   //To render in iterations of 100
-  for(int i=0;i<100;i++){
+  for(i=0;i<100;i++){
     drawPoint();
     nextPoint();  
   }
